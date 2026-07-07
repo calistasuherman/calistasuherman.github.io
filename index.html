@@ -1,1 +1,143 @@
-<h1>Wassup</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calista Suherman — Software &amp; Automation</title>
+<meta name="description" content="Calista Suherman builds software that automates customs brokerage operations — document extraction, filing automation, and client-facing web apps.">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --text: #1c1917;
+    --muted: #78716c;
+    --accent: #9f1239;
+    --border: #e7e5e4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 72px 24px 48px; }
+  header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+  header .tagline { font-size: 1.1rem; color: var(--muted); margin-top: 8px; max-width: 560px; }
+  .links { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .links a {
+    color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+  }
+  .links a:hover { border-bottom-color: var(--accent); }
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin-bottom: 20px;
+  }
+  .about p + p { margin-top: 12px; }
+  .project {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 24px; margin-bottom: 16px;
+  }
+  .project h3 { font-size: 1.1rem; font-weight: 650; }
+  .project h3 a { color: var(--text); text-decoration: none; }
+  .project h3 a:hover { color: var(--accent); }
+  .project .meta { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+  .project p { margin-top: 10px; font-size: 0.95rem; }
+  .tags { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.75rem; font-weight: 600; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 99px; padding: 3px 10px;
+  }
+  .project .cta { margin-top: 14px; display: flex; gap: 18px; }
+  .project .cta a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+  .project .cta a:hover { text-decoration: underline; }
+  .private-note { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 14px; }
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border);
+    font-size: 0.9rem; color: var(--muted);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Calista Suherman</h1>
+    <p class="tagline">I build software that automates customs brokerage operations —
+    turning manual, PDF-heavy filing workflows into web apps and AI-assisted tools.</p>
+    <div class="links">
+      <a href="https://github.com/calistasuherman">GitHub</a>
+      <a href="mailto:calistarsuherman@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>I work at Agiloc International, a US customs broker, where I've built the tools the
+    brokerage runs on day to day: a client-facing filing portal in production, desktop
+    automation that reads shipping documents and files them with US Customs systems, and
+    the tariff-classification data that powers both.</p>
+    <p>I work primarily in TypeScript and Python, with a focus on AI-assisted document
+    extraction and browser automation.</p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3><a href="https://github.com/calistasuherman/isf-form">ISF Filing Portal</a></h3>
+      <p class="meta">Production web app · Agiloc International</p>
+      <p>Clients submit their Importer Security Filing ("10+2") data through a dynamic form —
+      any number of manufacturers and item descriptions, packing list attached. The app
+      generates a formatted PDF server-side and emails the complete filing package to the
+      brokerage team, replacing an error-prone back-and-forth of spreadsheets and scans.</p>
+      <div class="tags">
+        <span class="tag">Next.js 14</span><span class="tag">TypeScript</span>
+        <span class="tag">React</span><span class="tag">pdf-lib</span><span class="tag">Resend</span>
+      </div>
+      <div class="cta">
+        <a href="https://isf.agiloc.com/isf-form">Live site →</a>
+        <a href="https://github.com/calistasuherman/isf-form">Source code →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>NetCHB Filing Automation</h3>
+      <p class="meta">Desktop automation · Agiloc International</p>
+      <p>Reads a folder of shipping PDFs — bills of lading, invoices, packing lists — extracts
+      the filing fields with the Claude API (including scanned documents via vision), resolves
+      HTS codes against per-client classification tables, and fills ISF and Entry Summary
+      (CBP Form 7501) forms in NetCHB by driving a logged-in Chrome session with Playwright.
+      A human reviews every filing before submission.</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Claude API</span>
+        <span class="tag">Playwright</span><span class="tag">PyMuPDF</span><span class="tag">pandas</span>
+      </div>
+      <p class="private-note">Internal employer tooling — code available on request.</p>
+    </div>
+
+    <div class="project">
+      <h3>HTS Tariff Classification Library</h3>
+      <p class="meta">Data engineering · Agiloc International</p>
+      <p>2026 Harmonized Tariff Schedule classifications for 25 importer clients — hundreds of
+      products each, mapped to HTS codes, duty rates, and FDA product codes with a full audit
+      trail to source documents. Serves as the automated HTS lookup table for the filing
+      automation above.</p>
+      <div class="tags">
+        <span class="tag">HTS / customs compliance</span><span class="tag">Excel</span><span class="tag">AI-assisted classification</span>
+      </div>
+      <p class="private-note">Confidential client data — structure and workflow described on request.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Calista Suherman · <a href="https://github.com/calistasuherman">github.com/calistasuherman</a> ·
+    <a href="mailto:calistarsuherman@gmail.com">calistarsuherman@gmail.com</a></p>
+  </footer>
+</main>
+</body>
+</html>
