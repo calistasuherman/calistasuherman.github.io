@@ -5,146 +5,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calista Suherman — Software &amp; Automation</title>
 <meta name="description" content="Calista Suherman builds software that automates customs brokerage operations — document extraction, filing automation, and client-facing web apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fafaf9;
+    --bg: #faf9f7;
     --card: #ffffff;
-    --text: #1c1917;
-    --muted: #78716c;
+    --text: #211d1a;
+    --muted: #6f6862;
     --accent: #9f1239;
-    --border: #e7e5e4;
+    --accent-soft: #fdf2f5;
+    --border: #e9e4de;
+    --shadow: 0 1px 2px rgba(33, 29, 26, 0.04), 0 8px 24px rgba(33, 29, 26, 0.06);
+    --shadow-hover: 0 2px 4px rgba(33, 29, 26, 0.05), 0 16px 40px rgba(33, 29, 26, 0.10);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.65;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 720px; margin: 0 auto; padding: 72px 24px 48px; }
-  header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
-  header .tagline { font-size: 1.1rem; color: var(--muted); margin-top: 8px; max-width: 560px; }
-  .links { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap; }
-  .links a {
-    color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.95rem;
-    border-bottom: 1px solid transparent;
+  main { max-width: 860px; margin: 0 auto; padding: 0 24px 64px; }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .hero .eyebrow {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
   }
-  .links a:hover { border-bottom-color: var(--accent); }
-  section { margin-top: 56px; }
+  .hero h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 3.4rem); font-weight: 600;
+    letter-spacing: -0.015em; line-height: 1.12;
+  }
+  .hero .tagline {
+    font-size: 1.2rem; color: var(--muted); margin-top: 20px; max-width: 620px;
+  }
+  .hero .links { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 22px; border-radius: 99px;
+    font-size: 0.92rem; font-weight: 600; text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(159, 18, 57, 0.28); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Sections */
+  section { margin-top: 72px; }
   h2 {
-    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--muted); margin-bottom: 20px;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em;
+    display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
   }
-  .about p + p { margin-top: 12px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  .about p { max-width: 700px; color: #3c3733; }
+  .about p + p { margin-top: 16px; }
+
+  /* Project cards */
   .project {
-    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-    padding: 24px; margin-bottom: 16px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    margin-bottom: 24px; overflow: hidden; box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
-  .project h3 { font-size: 1.1rem; font-weight: 650; }
+  .project:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: #dcd4cc; }
+  .project .screenshot {
+    display: block; width: 100%; max-height: 340px; object-fit: cover; object-position: top;
+    border-bottom: 1px solid var(--border);
+  }
+  .project .body { padding: 28px 30px; }
+  .project h3 { font-size: 1.22rem; font-weight: 600; letter-spacing: -0.01em; }
   .project h3 a { color: var(--text); text-decoration: none; }
   .project h3 a:hover { color: var(--accent); }
-  .project .meta { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
-  .project p { margin-top: 10px; font-size: 0.95rem; }
-  .tags { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .project .meta {
+    display: inline-block; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+    border-radius: 99px; padding: 3px 12px; margin-bottom: 12px;
+  }
+  .project p { font-size: 0.97rem; color: #3c3733; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
   .tag {
-    font-size: 0.75rem; font-weight: 600; color: var(--muted);
-    background: var(--bg); border: 1px solid var(--border); border-radius: 99px; padding: 3px 10px;
+    font-size: 0.76rem; font-weight: 600; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 99px; padding: 4px 12px;
   }
-  .project .cta { margin-top: 14px; display: flex; gap: 18px; }
-  .project .cta a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-  .project .cta a:hover { text-decoration: underline; }
-  .private-note { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 14px; }
+  .cta { margin-top: 18px; display: flex; gap: 22px; flex-wrap: wrap; }
+  .cta a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+  .cta a:hover { text-decoration: underline; }
+  .private-note { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 16px; }
+
   footer {
-    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border);
+    margin-top: 88px; padding-top: 28px; border-top: 1px solid var(--border);
     font-size: 0.9rem; color: var(--muted);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
-  footer a { color: var(--accent); text-decoration: none; }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
   footer a:hover { text-decoration: underline; }
+
+  /* Entrance animation (only when JS is available to reveal it) */
+  .js .fade { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .js .fade.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .fade { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
 </style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 <main>
-  <header>
+  <header class="hero fade">
+    <p class="eyebrow">Software &amp; Automation · Los Angeles</p>
     <h1>Calista Suherman</h1>
-    <p class="tagline">I build software that automates customs brokerage operations —
+    <p class="tagline">I build software that automates customs brokerage operations,
     turning manual, PDF-heavy filing workflows into web apps and AI-assisted tools.</p>
     <div class="links">
-      <a href="https://github.com/calistasuherman">GitHub</a>
-      <a href="mailto:calistarsuherman@gmail.com">Email</a>
+      <a class="btn btn-primary" href="https://github.com/calistasuherman">GitHub</a>
+      <a class="btn btn-ghost" href="mailto:calistarsuherman@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://isf.agiloc.com/isf-form">See a live project</a>
     </div>
   </header>
 
-  <section class="about">
+  <section class="about fade">
     <h2>About</h2>
-    <p>I work at Agiloc International, a US customs broker, where I've built the tools the
-    brokerage runs on day to day: a client-facing filing portal in production, desktop
-    automation that reads shipping documents and files them with US Customs systems, and
-    the tariff-classification data that powers both.</p>
+    <p>I work at Agiloc International, a US-based logistics company that provides customs
+    brokerage services, where I've built the tools the brokerage runs on day to day: a
+    client-facing filing portal in production, desktop automation that reads shipping
+    documents and files them with US Customs systems, and the tariff-classification data
+    that powers both.</p>
     <p>I'm a 2026 graduate of the University of Southern California with a B.S. in
-    Industrial and Systems Engineering — which is exactly what this work is: studying an
+    Industrial and Systems Engineering, which is exactly what this work is: studying an
     operational process, finding the bottleneck, and engineering it away. I work primarily
     in TypeScript and Python, with a focus on AI-assisted document extraction and browser
     automation.</p>
   </section>
 
-  <section>
+  <section class="fade">
     <h2>Projects</h2>
 
     <div class="project">
-      <h3><a href="https://github.com/calistasuherman/isf-form">ISF Filing Portal</a></h3>
-      <p class="meta">Production web app · Agiloc International</p>
-      <p>Clients submit their Importer Security Filing ("10+2") data through a dynamic form —
-      any number of manufacturers and item descriptions, packing list attached. The app
-      generates a formatted PDF server-side and emails the complete filing package to the
-      brokerage team, replacing an error-prone back-and-forth of spreadsheets and scans.</p>
-      <div class="tags">
-        <span class="tag">Next.js 14</span><span class="tag">TypeScript</span>
-        <span class="tag">React</span><span class="tag">pdf-lib</span><span class="tag">Resend</span>
-      </div>
-      <div class="cta">
-        <a href="https://isf.agiloc.com/isf-form">Live site →</a>
-        <a href="https://github.com/calistasuherman/isf-form">Source code →</a>
+      <img class="screenshot" src="https://raw.githubusercontent.com/calistasuherman/isf-form/main/docs/isf-form-screenshot.png" alt="Screenshot of the ISF filing portal">
+      <div class="body">
+        <span class="meta">Production web app</span>
+        <h3><a href="https://github.com/calistasuherman/isf-form">ISF Filing Portal</a></h3>
+        <p>Clients submit their Importer Security Filing ("10+2") data through a dynamic form —
+        any number of manufacturers and item descriptions, packing list attached. The app
+        generates a formatted PDF server-side and emails the complete filing package to the
+        brokerage team, replacing an error-prone back-and-forth of spreadsheets and scans.</p>
+        <div class="tags">
+          <span class="tag">Next.js 14</span><span class="tag">TypeScript</span>
+          <span class="tag">React</span><span class="tag">pdf-lib</span><span class="tag">Resend</span>
+        </div>
+        <div class="cta">
+          <a href="https://isf.agiloc.com/isf-form">Live site →</a>
+          <a href="https://github.com/calistasuherman/isf-form">Source code →</a>
+        </div>
       </div>
     </div>
 
     <div class="project">
-      <h3>NetCHB Filing Automation</h3>
-      <p class="meta">Desktop automation · Agiloc International</p>
-      <p>Reads a folder of shipping PDFs — bills of lading, invoices, packing lists — extracts
-      the filing fields with the Claude API (including scanned documents via vision), resolves
-      HTS codes against per-client classification tables, and fills ISF and Entry Summary
-      (CBP Form 7501) forms in NetCHB by driving a logged-in Chrome session with Playwright.
-      A human reviews every filing before submission.</p>
-      <div class="tags">
-        <span class="tag">Python</span><span class="tag">Claude API</span>
-        <span class="tag">Playwright</span><span class="tag">PyMuPDF</span><span class="tag">pandas</span>
+      <div class="body">
+        <span class="meta">Desktop automation</span>
+        <h3>NetCHB Filing Automation</h3>
+        <p>Reads a folder of shipping PDFs — bills of lading, invoices, packing lists — extracts
+        the filing fields with the Claude API (including scanned documents via vision), resolves
+        HTS codes against per-client classification tables, and fills ISF and Entry Summary
+        (CBP Form 7501) forms in NetCHB by driving a logged-in Chrome session with Playwright.
+        A human reviews every filing before submission.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Claude API</span>
+          <span class="tag">Playwright</span><span class="tag">PyMuPDF</span><span class="tag">pandas</span>
+        </div>
+        <div class="cta">
+          <a href="https://github.com/calistasuherman/claude-pdf-extractor">Open-source extraction demo →</a>
+        </div>
+        <p class="private-note">Internal employer tooling — the core extraction pattern is
+        open-sourced above; full code available on request.</p>
       </div>
-      <div class="cta">
-        <a href="https://github.com/calistasuherman/claude-pdf-extractor">Open-source extraction demo →</a>
-      </div>
-      <p class="private-note">Internal employer tooling — the core extraction pattern is
-      open-sourced above; full code available on request.</p>
     </div>
 
     <div class="project">
-      <h3>HTS Tariff Classification Library</h3>
-      <p class="meta">Data engineering · Agiloc International</p>
-      <p>2026 Harmonized Tariff Schedule classifications for 25 importer clients — hundreds of
-      products each, mapped to HTS codes, duty rates, and FDA product codes with a full audit
-      trail to source documents. Serves as the automated HTS lookup table for the filing
-      automation above.</p>
-      <div class="tags">
-        <span class="tag">HTS / customs compliance</span><span class="tag">Excel</span><span class="tag">AI-assisted classification</span>
+      <div class="body">
+        <span class="meta">Data engineering</span>
+        <h3>HTS Tariff Classification Library</h3>
+        <p>2026 Harmonized Tariff Schedule classifications for 25 importer clients — hundreds of
+        products each, mapped to HTS codes, duty rates, and FDA product codes with a full audit
+        trail to source documents. Serves as the automated HTS lookup table for the filing
+        automation above.</p>
+        <div class="tags">
+          <span class="tag">HTS / customs compliance</span><span class="tag">Excel</span>
+          <span class="tag">AI-assisted classification</span>
+        </div>
+        <p class="private-note">Confidential client data — structure and workflow described on request.</p>
       </div>
-      <p class="private-note">Confidential client data — structure and workflow described on request.</p>
     </div>
   </section>
 
-  <footer>
-    <p>Calista Suherman · <a href="https://github.com/calistasuherman">github.com/calistasuherman</a> ·
-    <a href="mailto:calistarsuherman@gmail.com">calistarsuherman@gmail.com</a></p>
+  <footer class="fade">
+    <span>Calista Suherman · USC ’26, Industrial &amp; Systems Engineering</span>
+    <span><a href="https://github.com/calistasuherman">GitHub</a> ·
+    <a href="mailto:calistarsuherman@gmail.com">calistarsuherman@gmail.com</a></span>
   </footer>
 </main>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".fade").forEach((el) => io.observe(el));
+</script>
 </body>
 </html>
